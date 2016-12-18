@@ -1322,7 +1322,7 @@ cpdefine("inline:com-chilipeppr-widget-autolevel", ["chilipeppr_ready", "ThreeHe
                     // on subsequent we have a known z near pcb board so no need to go too negative (just in case)
                     that.send("G38.2 Z" + maxNegZ + " F" + probeFeedRate + "\n");
                 }
-            }, 3000);
+            }, 1000); // dont know why to use here a 3sec pause, 1sec is enough cuz the position will update every 250ms
             
         },
         watchZ: function(probe, donecallback) {

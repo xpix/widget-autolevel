@@ -191,10 +191,10 @@ cpdefine("inline:com-chilipeppr-widget-autolevel", ["chilipeppr_ready", "ThreeHe
     
     return {
         id: "com-chilipeppr-widget-autolevel",
-        url: "http://raw.githubusercontent.com/chilipeppr/widget-autolevel/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/chilipeppr/widget-autolevel", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/chilipeppr/widget-autolevel", // The backing github repo
-        testurl: "http://widget-autolevel-chilipeppr.c9users.io/widget.html",   // The standalone working widget so can view it working by itself
+        url: "http://raw.githubusercontent.com/xpix/widget-autolevel/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/xpix/widget-autolevel", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/xpix/widget-autolevel", // The backing github repo
+        testurl: "http://widget-autolevel-xpix.c9users.io/widget.html",   // The standalone working widget so can view it working by itself
         name: "Widget / Auto-Level",
         desc: "Allows you to auto-level your PCB or other conductive surface before milling. Most raw PCB boards or other surfaces have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job.",
         publish: {
@@ -1413,7 +1413,7 @@ cpdefine("inline:com-chilipeppr-widget-autolevel", ["chilipeppr_ready", "ThreeHe
                     // on subsequent we have a known z near pcb board so no need to go too negative (just in case)
                     that.send("G38.2 Z" + maxNegZ + " F" + probeFeedRate + "\n");
                 }
-            }, 3000);
+            }, 1000); // dont know why to use here a 3sec pause, 1sec is enough cuz the position will update every 250ms
             
         },
         watchZ: function(probe, donecallback) {
